@@ -32,9 +32,9 @@
                    <thead>
                        <tr>
                            <th>Name</th>
-                           <th>Description</th>
-                           <th>Amount</th>
-                           <th>Unit Amount</th>
+                           <th>Debit</th>
+                           <th>Credit</th>
+                           <th>Balance</th>
                        </tr>
                    </thead>
                    <tbody>
@@ -49,16 +49,16 @@
                                     <i class="fa fa-caret-down" role="img" aria-label="Unfolded" title="Unfolded"/>
                                </td>
                                <td>
-                                   <t t-esc="data['name_b']"/>
+                                   <t t-esc="data['ann_account_debit']"/>
                                </td>
 <!--                               <td>-->
 <!--                                   <t t-esc="data['account_id']"/>-->
 <!--                               </td>-->
                                <td>
-                                   <t t-esc="data['amount']"/>
+                                   <t t-esc="data['ann_account_credit']"/>
                                </td>
                                <td>
-                                   <t t-esc="data['unit_amount']"/>
+                                   <t t-esc="data['ann_account_balance']"/>
                                </td>
 
 

@@ -10,10 +10,19 @@ class AnalyticAccount(models.Model):
     ann_account_credit = fields.Monetary()
     ann_account_balance = fields.Monetary()
 
+    """Getting Balance, Credit, Debit here because the main function for credit debit balance is in compute only and no stored """
     def fetch_data_from_function(self):
-        pass_data = self._compute_debit_credit_balance()
-        for rec in pass_data:
-            print(rec)
-        # self.ann_account_credit = pass_data
-
-
+        self.compute_here = 0
+        fetch_debit = 0
+        fetch_credit = 0
+        fetch_balance = 0
+        for rec in self:
+            print(rec.debit)
+            print(rec.credit)
+            print(rec.balance)
+            fetch_debit = rec.debit
+            fetch_credit = rec.credit
+            fetch_balance = rec.balance
+        self.ann_account_debit = fetch_debit
+        self.ann_account_credit = fetch_credit
+        self.ann_account_balance = fetch_balance

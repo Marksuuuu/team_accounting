@@ -40,7 +40,8 @@
         'views/account_move_views.xml',
         'views/templates.xml',
         'views/ir_actions_report.xml',
-        'views/team_accounting_menu.xml'
+        'views/team_accounting_menu.xml',
+        'views/analytic_account_view.xml'
     ],
     'installable': True,
     'application': True,
