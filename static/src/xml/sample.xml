@@ -19,33 +19,52 @@
        <div>
            <div class="table_main_view">
                <div style="float-left">
-                   <td><button>Sample</button></td>
-                   <td><button>Sample</button></td>
+                   <td><button type="button" class="btn btn-primary" id="pdf"
+                            style="position: relative;height:30px;color:white;background-color: #00A0AD;border-color: #00A0AD; padding:3px;">
+                        Print (PDF)
+                    </button></td>
+                   <td><button type="button" class="btn btn-danger" id="test1"
+                            style="position: relative;height:30px;color:white;background-color: #00A0AD;border-color: #00A0AD; padding:3px;">
+                        Print (XLSX)
+                    </button></td>
                </div>
                <table cellspacing="0" width="100%">
                    <thead>
                        <tr>
-                           <th>Number</th>
-                           <th>Customer</th>
-                           <th>Amount Total</th>
-                           <th>Status</th>
+                           <th>Name</th>
+                           <th>Description</th>
+                           <th>Amount</th>
+                           <th>Unit Amount</th>
                        </tr>
                    </thead>
                    <tbody>
                        <t t-foreach="report_lines" t-as="data">
-                           <tr style="border: 1px solid black;">
+                           <tr style="border: 1.5px solid black;" class="gl-line"
+                                data-toggle="collapse"
+                                t-att-data-account-id="data['id']"
+                                t-attf-data-target=".a{{data['id']}}">
                                <td style="border: 0px solid black;">
+
                                        <t t-esc="data['name']"/>
+                                    <i class="fa fa-caret-down" role="img" aria-label="Unfolded" title="Unfolded"/>
                                </td>
                                <td>
-                                   <t t-esc="data['customer']"/>
+                                   <t t-esc="data['name_b']"/>
+                               </td>
+<!--                               <td>-->
+<!--                                   <t t-esc="data['account_id']"/>-->
+<!--                               </td>-->
+                               <td>
+                                   <t t-esc="data['amount']"/>
                                </td>
                                <td>
-                                   <t t-esc="data['amount_total']"/>
+                                   <t t-esc="data['unit_amount']"/>
                                </td>
-                               <td>
-                                   <t t-esc="data['state']"/>
-                               </td>
+
+
+<!--                               <td>-->
+<!--                                   <t t-esc="data['state']"/>-->
+<!--                               </td>-->
                            </tr>
                        </t>
                    </tbody>

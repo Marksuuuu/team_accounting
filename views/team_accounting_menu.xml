@@ -21,7 +21,7 @@
                <field name="target">new</field>
         </record>
            <menuitem id="menu_testing"  action="action_sale_demo"
-             name="Sale Custom" parent="team_accounting_menu"/>
+             name="P and L" parent="team_accounting_menu"/>
 
 
     </data>

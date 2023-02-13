@@ -44,3 +44,4 @@ class TBXLSXReportController(http.Controller):
             }
             return request.make_response(html_escape(json.dumps(error)))
 
+

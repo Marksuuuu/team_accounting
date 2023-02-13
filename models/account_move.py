@@ -51,7 +51,7 @@ class account_move(models.Model):
     saving_forex_php_value = fields.Float()
 
     # adding_usd_with_percent_here = fields.Float(compute='adding_usd_with_percent')
-    adding_usd_with_percent_value = fields.Float()
+    adding_usd_with_percent_value = fields.Float(digits=(12, 3))
 
     computing_forex_and_amm = fields.Float(compute='computing_forex_and_amm_var')
     forex_and_amm_val = fields.Float()

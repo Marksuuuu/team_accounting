@@ -5,129 +5,170 @@
              <t t-call="web.internal_layout">
                 <t t-set="o" t-value="o.with_context(lang=lang)" />
                 <xpath expr="//style" position="after">
-					 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-					 <link rel="preconnect" href="https://fonts.gstatic.com"/>
-					 <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&amp;display=swap" rel="stylesheet"/>
                      <style type="text/css">
-				         @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&amp;display=swap');
-<!--                        td,th,tr,table{-->
-<!--							border: 1px solid black;-->
-<!--							font-weight: normal;-->
-<!--							font-family: 'Courier Prime', monospace;-->
-<!--							font-size:11px;-->
-<!--                        }-->
+                        tr{
+							border: 1px dashed black;
+							font-weight: normal;
+							font-size:15px;
+                        }
                         .no_color{
-                            border: 1px solid white;
+                            border: 1px dashed white;
                         }
 						table{
-						    font-size:13px;
+						    font-size:15px;
 						}
+						 h6{
+						 	font-size:15px;
+						 }
 					</style>
                 </xpath>
                  	<table>
 		<tr>
-            <td  colspan="5" style="text-align: center; border:1px solid white;"></td>
+            <td  colspan="5" style="text-align: center;">
+                <img src="/team_accounting/static/src/img/no_bg.png"/>
+            </td>
 		</tr>
 		<tr>
-			<td colspan="5" style="text-align: center; border:1px solid white; letter-spacing: 2px; font-weight:bold; height: 30px;">DEBIT / CREDIT MEMO</td>
+			<td colspan="5" style="text-align: center; letter-spacing: 2px; font-weight:bold; height: 40px; font-size: 20px; vertical-align:top; text-top;"><span>DEBIT / CREDIT MEMO</span></td>
 		</tr>
 		<tr>
-			<th style="width:200px; text-align: left; border:1px solid white;">
+			<th style="width:200px; text-align: left; font-weight: normal;">
 			Customer Code:
 			</th>
-			<th  style='width: 250px; text-align: left; border:1px solid white;'>ATOM POWER</th>
-			<th  style="width: 130px; text-align: left; border:1px solid white;">
+			<th  style='width: 250px; text-align: left; font-weight: normal;'>
+                <t t-if="o.partner_id">
+					<span t-field="o.partner_id"/>
+				</t>
+            </th>
+			<th  style="width: 130px; text-align: left; font-weight: normal;">
 				DM/CM No.:
 			</th>
-			<th  style='width: 300px; text-align: right; border:1px solid white;'>
-				11/05/11
+			<th  style='width: 300px; text-align: right; font-weight: normal;'>
+				<span t-esc="o.name"/>
 			</th>
 		</tr>
 		<tr>
-			<td  style="width:130px; text-align: left; border:1px solid black;">
+			<td  style="width:130px; text-align: left; ">
 			For:
 			</td>
-			<td  style='width: 300px; text-align: left; border:1px solid white;'>&#160;</td>
-			<td  style="width: 130px; text-align: left; border:1px solid white;">
+			<td  style='width: 300px; text-align: left;'>
+                <t t-foreach="o.partner_id" t-as="val">
+                    <span t-esc="val.street"/>
+				</t>
+            </td>
+			<td  style="width: 130px; text-align: left;">
 				Date:
 			</td>
-			<td  style='width: 300px; text-align: right; border:1px solid white;'>
-				11/05/11
+			<td  style='width: 300px; text-align: right;'>
+				<span t-esc="o.date.strftime('%m/%d/%Y')"/>
 			</td>
 		</tr>
 		<tr>
-			<td  style="width:130px; text-align: left; border:1px solid white;">
+			<td  style="width:130px; text-align: left;">
 			&#160;
 			</td>
-			<td  style='width: 300px; border:1px solid white;'>&#160;</td>
-			<td  style="width: 130px; text-align: left; border:1px solid white;">
+			<td  style='width: 300px;'>
+                <t t-foreach="o.partner_id" t-as="val">
+                    <span t-esc="val.city"/>
+				</t>
+            </td>
+			<td  style="width: 130px; text-align: left;">
 				Terms:
 			</td>
-			<td  style='width: 300px; text-align: right; border:1px solid white;'>
-				02/02/2023
+			<td  style='width: 300px; text-align: right;'>
+				<t t-if="not o.invoice_payment_term_id">
+					<span t-esc="o.invoice_date_due.strftime('%m/%d/%Y')"/>
+				</t>
+				<t t-elif="o.invoice_payment_term_id">
+					<div t-field="o.invoice_payment_term_id.name"/>
+				</t>
 			</td>
 		</tr>
 		<tr>
-			<td  style="width:130px; text-align: left; border:1px solid white;">
+			<td  style="width:130px; text-align: left;">
 			&#160;
 			</td>
-			<td  style='width: 300px; border:1px solid white;'>&#160;</td>
-			<td  style="width: 130px; text-align: left; border:1px solid white;">
+			<td  style='width: 300px;'>
+                <t t-foreach="o.partner_id" t-as="val">
+                    <span t-esc="val.country_id.name"/>
+				</t>
+            </td>
+			<td  style="width: 130px; text-align: left;">
 				Due Date:
 			</td>
-			<td  style='width: 300px; text-align: right; border:1px solid white;'>
-				02/02/2023
+			<td  style='width: 300px; text-align: right;'>
+				<span t-esc="o.invoice_date_due.strftime('%m/%d/%Y')"/>
 			</td>
 		</tr>
 		<tr>
-			<td  style="width:130px; text-align: left; border:1px solid white;">
+			<td  style="width:130px; text-align: left;">
 			in the Amount of:
 			</td>
-			<td  style='width: 300px; border:1px solid white;'>&#160;</td>
-			<td  style="width: 130px; text-align: left; border:1px solid white;">
+			<td  style='width: 300px;'>&#160;</td>
+			<td  style="width: 130px; text-align: left;">
 				&#160;
 			</td>
-			<td  style='width: 300px; border:1px solid white;'>
+			<td  style='width: 300px;'>
 				&#160;
 			</td>
 		</tr>
 		<tr>
-			<td  style="width:130px; text-align: left; border:1px solid white;">
+			<td  style="width:130px; text-align: left;">
 			To apply to the following:
 			</td>
-			<td  style='width: 300px; border:1px solid white;'>&#160;</td>
-			<td  style="width: 130px; text-align: left; border:1px solid white;">
+			<td  style='width: 300px;'>&#160;</td>
+			<td  style="width: 130px; text-align: left;">
 
 			</td>
-			<td  style='width: 300px; border:1px solid black; border-left: none;'>
+			<td  style='width: 300px;  border-left: none;'>
 				&#160;
 			</td>
 		</tr>
-		<tr style="border-top: 1px solid black;">
-			<td colspan="5" style="height: 30px;"/>
+                  </table>
+                  <table style="border: 1px dashed black">
+		<tr style="border-top: 1px dashed black;">
+			<tr>
+                <th style="width:200px; text-align: left;">
+                &#160;
+                </th>
+                <th  style='width: 250px; text-align: left;'>&#160;</th>
+                <th  style="width: 130px; text-align: left;">
+                    &#160;
+                </th>
+                <th  style='width: 400px; text-align: right;'>
+                    &#160;
+                </th>
+		    </tr>
+		</tr>
+		<tr style="border: 1px dashed black">
+			<td  colspan="5" style="height: 30px; border: 1px dashed black"/>
 		</tr>
 		<tr>
-			<td colspan="5" style="height: 30px;"/>
+			<td colspan="5" style="height: 30px; border: 1px dashed black"/>
+		</tr>
+
+
+		<tr>
+			<td colspan="3" style="height: 30px; letter-spacing: 2px; text-align:center; border: 1px dashed black">PARTICULARS</td>
+			<td colspan="2" style="height: 30px; letter-spacing: 2px; text-align: center; border: 1px dashed black">AMOUNT</td>
 		</tr>
 		<tr>
-			<td colspan="5" style="height: 30px;"/>
-		</tr>
-		<tr>
-			<td colspan="3" style="height: 30px; letter-spacing: 2px; text-align:center;">PARTICULARS</td>
-			<td colspan="2" style="height: 30px; letter-spacing: 2px; text-align: center;">AMOUNT</td>
-		</tr>
-		<tr>
-			<td colspan="3" style="height: 400px; vertical-align:top;">
-					<span >TO DEBIT YOUR ACCOUNT FOR:</span>
-				<div style="width: 95%; height: 80%; border: 1px solid white; margin: auto;">
+			<td colspan="3" style="height: 430px; vertical-align:top; border: 1px dashed black">
+					<span >TO DEBIT YOUR ACCOUNT FOR:</span><br/>
+					<span>
+						 <t t-foreach="o.line_ids" t-as="val">
+                             <span t-esc="val.name" />,
+                        </t>
+					</span>
+				<div style="width: 95%; height: 80%; border: 1px dashed white; margin: auto;">
 					<div style="margin-left: 90px; margin-top: 20px;">
-						<table>
+						<table >
 							<tr>
-								<th style="width:250px; text-align:center;">
+								<th style="width:250px; text-align:center; font-weight: normal;">
 								Amount PHP
 								</th>
-								<th style="width:120px; text-align:left;">
-									: 1,100.00
+								<th style="width:120px; text-align:left; font-weight: normal;">
+									: <span t-esc="o.forex_and_amm_val" t-options='{"widget": "float", "precision": 2}' />
 								</th>
 							</tr>
 							<tr>
@@ -135,7 +176,7 @@
 								FOREX RATE
 								</td>
 								<td class="no_color">
-									: 1,100.00
+									: <span t-esc="o.saving_forex_php_value" />
 								</td>
 							</tr>
 							<tr>
@@ -146,7 +187,7 @@
 								AMOUNT USD
 								</td>
 								<td class="no_color">
-									: 1,100.00
+									: <span t-esc="o.deduct_value" t-options='{"widget": "float", "precision": 2}'/>
 								</td>
 							</tr>
 							<tr>
@@ -154,63 +195,69 @@
 								ADD : 5% PROCESSING FEE
 								</td>
 								<td class="no_color">
-									: 1,100.00
+									: <span t-esc="o.add_percent" t-options='{"widget": "float", "precision": 2}'/>
 								</td>
 							</tr>
 							<tr>
 								<td class="no_color" colspan="2" style="text-align:right;">-----------------------------</td>
 							</tr>
-
+                            <tr>
+								<td class="no_color" style="text-align:center;">
+								TOTAL US$
+								</td>
+								<td class="no_color">
+									: <span t-esc="o.adding_usd_with_percent_value" t-options='{"widget": "float", "precision": 2}'/>
+								</td>
+							</tr>
 						</table>
 
 					</div>
-						<div style="vertical-align: bottom; margin-top:70px;">
-							<span>AMOUNT: </span><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua. </span>
-						</div>
+					<div style="vertical-align: bottom; margin-top:57px;">
+							<span>AMOUNT: </span><span t-esc="o.word_move" />
+					</div>
 				</div>
 			</td>
-			<td colspan="2" style="height: 400px; text-align: center;">
-				<div style="vertical-align: bottom; margin-top:250px;">
-							<span>USD: 20.00</span>
+			<td colspan="2" style="height: 430px; text-align: center;">
+				<div style="vertical-align: bottom; margin-top:182px;">
+							<span>USD: </span><span t-esc="o.adding_usd_with_percent_value" t-options='{"widget": "float", "precision": 2}'/>
 				</div>
 			</td>
 		</tr>
 	</table>
-	<table>
+	<table style="border: 1px dashed black">
 		<tr style="">
 			<td colspan="4" style="">
 				<span>GL ENTRY</span>
 			</td>
 		</tr>
 		<tr style="">
-			<td  style="width:232px; border: 1px solid black; text-align: center;">
+			<th  style="width:232px;  text-align: center;">
 			GL CODE
-			</td>
-			<td  style="width:232px; border: 1px solid black; text-align: center;">DESCRIPTION</td>
-			<td  style="width:232px; border: 1px solid black; text-align: center;">
+			</th>
+			<th  style="width:232px;  text-align: center;">DESCRIPTION</th>
+			<th  style="width:232px;  text-align: center;">
 				DEBIT
-			</td>
-			<td  style="width:237px; border: 1px solid black; text-align: center;">
+			</th>
+			<th  style="width:237px;  text-align: center;">
 				CREDIT
-			</td>
+			</th>
 		</tr>
 		<tr>
-			<td  style="width:235px; height: 150px; border: 1px solid black; text-align: center; vertical-align: text-top; ">
-			GL CODE
+			<td  style="width:235px; height: 180px;  text-align: center;">
+
 			</td>
-			<td  style="width:232px; border: 1px solid black; text-align: center; vertical-align: text-top;  ">
-			DESCRIPTION
+			<td  style="width:232px;  text-align: center;">
+
 			</td>
-			<td  style="width:232px; border: 1px solid black; text-align: center; vertical-align: text-top;  ">
-				DEBIT
+			<td  style="width:232px;  text-align: center;">
+
 			</td>
-			<td  style="width:234px; border: 1px solid black; text-align: center; vertical-align: text-top; ">
-				CREDIT
+			<td  style="width:234px;  text-align: center;">
+
 			</td>
 		</tr>
 	</table>
-	<table>
+	<table style="border: 1px dashed black">
 		<tr>
 			<th style="width: 311px; height:100px; vertical-align: bottom; text-align:center;">
 				PREPARED BY
