@@ -601,12 +601,16 @@ class account_move(models.Model):
             else:
                 print('Sample')
                 cents_int = cents
-                cent_int = list(map(int, str(cents_int)))
-                print(cent_int)
+                only_two_start_num = int(str(cents_int)[:2])
+                print(only_two_start_num, '<-- for Testing')
+                cent_int = list(map(int, str(only_two_start_num)))
+                print(cent_int, '<-- get size')
                 counting_cents_stored = len(cent_int)
+                print(type(counting_cents_stored), '<-- count length')
                 if counting_cents_stored == 1:
                     print(counting_cents_stored)
                     only_two_start_num = int(str(cents)[:2])
+                    print(only_two_start_num, '<---- test print hhere')
                     cent_fraction = "{}0/100".format(only_two_start_num)
                     word = "{} & {} Only".format(dollar_words, cent_fraction)
                     remove_and = re.sub(',', '', str(word))
@@ -622,6 +626,8 @@ class account_move(models.Model):
                 else:
                     print(counting_cents_stored)
                     only_two_start_num = int(str(cents)[:2])
+                    print(only_two_start_num, '<---- test print double')
+                    # only_two_start_num = int(str(cents)[:2])
                     cent_fraction = "{}/100".format(only_two_start_num)
                     word = "{} & {} Only".format(dollar_words, cent_fraction)
                     remove_and = re.sub(',', '', str(word))
