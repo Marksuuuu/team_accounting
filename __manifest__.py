@@ -32,6 +32,7 @@
         'reports/debit_credit_memo_v2.xml',
         'reports/general_ledger.xml',
         'reports/new_debit_credit_report.xml',
+        'reports/new_debit_credit_report_v2.xml',
 
         #Views
 

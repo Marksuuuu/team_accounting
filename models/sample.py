@@ -26,3 +26,27 @@ class SaleCustom(models.Model):
        for rec in self.env.cr.dictfetchall():
            ret_list.append(rec)
        return ret_list
+
+   @api.model
+   def fetch_new_data(self):
+       fetch_list = []
+       sql = ("""
+            SELECT 
+                        a.id,
+                        b.name as name_b, 
+                        b.account_id,
+                        b.amount,
+                        b.date,
+                        b.unit_amount,
+						b.product_id
+                        from 
+                        account_analytic_account a 
+                        left join 
+                        account_analytic_line b
+                        on 
+                        a.id = b.account_id
+                        WHERE a.name in ('8310 Plastics-SOT')""")
+       self.env.cr.execute(sql)
+       for rec in self.env.cr.dictfetchall():
+           fetch_list.append(rec)
+       return fetch_list

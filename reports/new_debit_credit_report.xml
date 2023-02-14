@@ -20,6 +20,9 @@
 						 h6{
 						 	font-size:15px;
 						 }
+						 th{
+						 	font-weight:normal;
+						 }
 					</style>
                 </xpath>
                  	<table>
@@ -102,7 +105,7 @@
 		</tr>
 		<tr>
 			<td  style="width:130px; text-align: left;">
-			in the Amount of:
+			In the Amount of:
 			</td>
 			<td  style='width: 300px;'>&#160;</td>
 			<td  style="width: 130px; text-align: left;">
@@ -165,7 +168,7 @@
 						<table >
 							<tr>
 								<th style="width:250px; text-align:center; font-weight: normal;">
-								Amount PHP
+								AMOUNT PHP
 								</th>
 								<th style="width:120px; text-align:left; font-weight: normal;">
 									: <span t-esc="o.forex_and_amm_val" t-options='{"widget": "float", "precision": 2}' />
@@ -212,7 +215,7 @@
 						</table>
 
 					</div>
-					<div style="vertical-align: bottom; margin-top:57px;">
+					<div style="vertical-align: bottom; margin-top:58px;">
 							<span>AMOUNT: </span><span t-esc="o.word_move" />
 					</div>
 				</div>
@@ -232,29 +235,55 @@
 		</tr>
 		<tr style="">
 			<th  style="width:232px;  text-align: center;">
-			GL CODE
+				<div style="text-align:center;">
+					<span>GL CODE</span><br/><br/>
+				<span t-foreach="o.line_ids" t-as="val" style="text-align:center; vertical-align:top;">
+                            <span t-foreach="val.account_id" t-as="val2">
+                                <span t-esc="val2.code"/><br/>
+							</span>
+				</span>
+				</div><br/>
+				<span>&#160;</span>
 			</th>
-			<th  style="width:232px;  text-align: center;">DESCRIPTION</th>
 			<th  style="width:232px;  text-align: center;">
-				DEBIT
+				<div style="text-align:center;">
+					<span>DESCRIPTION</span><br/><br/>
+					<span t-foreach="o.line_ids" t-as="val" style="text-align:center;">
+                            <span t-foreach="val.account_id" t-as="val2">
+                                <span t-esc="val2.name"/><br/>
+                            </span>
+                	</span>
+				</div><br/>
+				<span>&#160;</span>
+			</th>
+			<th  style="width:232px;  text-align: center;">
+				<div style="text-align:center;">
+					<span>DEBIT</span><br/><br/>
+					<span t-foreach="o.line_ids" t-as="val" style="text-align:center;">
+					<t t-if="val.debit_data == 0">
+						<span>&#160;</span><br/>
+					</t>
+					<t t-else="val.debit_data">
+						<span t-esc="val.debit_data" t-options='{"widget": "float", "precision": 2}'/><br/>
+					</t>
+				</span>
+				</div><br/>
+				<span><span t-esc="o.adding_usd_with_percent_value" t-options='{"widget": "float", "precision": 2}'/></span>
 			</th>
 			<th  style="width:237px;  text-align: center;">
-				CREDIT
+				<div style="text-align:center;">
+					<span>CREDIT</span><br/><br/>
+					<span t-foreach="o.line_ids" t-as="val" style="text-align:center;">
+					<t t-if="val.credit_data == 0">
+						<span>&#160;</span><br/>
+					</t>
+					<t t-else="val.credit_data">
+						<span t-esc="val.credit_data" t-options='{"widget": "float", "precision": 2}'/><br/>
+					</t>
+				</span>
+				</div><br/>
+				<span><span t-esc="o.adding_usd_with_percent_value" t-options='{"widget": "float", "precision": 2}'/></span>
 			</th>
-		</tr>
-		<tr>
-			<td  style="width:235px; height: 180px;  text-align: center;">
-
-			</td>
-			<td  style="width:232px;  text-align: center;">
-
-			</td>
-			<td  style="width:232px;  text-align: center;">
-
-			</td>
-			<td  style="width:234px;  text-align: center;">
-
-			</td>
 		</tr>
 	</table>
 	<table style="border: 1px dashed black">
