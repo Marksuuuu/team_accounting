@@ -51,7 +51,7 @@ class account_move(models.Model):
     saving_forex_php_value = fields.Float()
 
     # adding_usd_with_percent_here = fields.Float(compute='adding_usd_with_percent')
-    adding_usd_with_percent_value = fields.Float(digits=(12, 3))
+    adding_usd_with_percent_value = fields.Float()
 
     computing_forex_and_amm = fields.Float(compute='computing_forex_and_amm_var')
     forex_and_amm_val = fields.Float()
@@ -606,7 +606,8 @@ class account_move(models.Model):
                 counting_cents_stored = len(cent_int)
                 if counting_cents_stored == 1:
                     print(counting_cents_stored)
-                    cent_fraction = "{}0/100".format(cents)
+                    only_two_start_num = int(str(cents)[:2])
+                    cent_fraction = "{}0/100".format(only_two_start_num)
                     word = "{} & {} Only".format(dollar_words, cent_fraction)
                     remove_and = re.sub(',', '', str(word))
                     remove_dash = re.sub('-', ' ', str(remove_and))
@@ -620,7 +621,8 @@ class account_move(models.Model):
                     self.word_move = test_str.title()
                 else:
                     print(counting_cents_stored)
-                    cent_fraction = "{}/100".format(cents)
+                    only_two_start_num = int(str(cents)[:2])
+                    cent_fraction = "{}/100".format(only_two_start_num)
                     word = "{} & {} Only".format(dollar_words, cent_fraction)
                     remove_and = re.sub(',', '', str(word))
                     remove_dash = re.sub('-', ' ', str(remove_and))

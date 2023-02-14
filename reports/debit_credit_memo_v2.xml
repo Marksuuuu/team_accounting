@@ -123,19 +123,18 @@
 		<t t-foreach="o.partner_id" t-as="val">
                 <span>
                     <span t-esc="val.street"/>
-                    <span t-esc="val.state_id.name"/>
+                    <span t-esc="val.city"/>
                     <span t-esc="val.country_id.name"/>
                 </span>
 				</t>
 		</div>
 	<div class="dc_report_dc" style="width:260px; border: 1px dashed white;">
-		 &#160;
+		 <span>&#160;</span>
 		</div>
 	<div class="dc_report_dc" style="width:260px; border: 1px dashed white;">
-		 &#160;
+		 <span>&#160;</span>
 		</div>
     </div>
-
 		<div style="display: block; margin-left:100px;">
 		<div class="dc">
 		DM/CM no:

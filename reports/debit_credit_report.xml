@@ -103,13 +103,13 @@
 		<span>For:</span>
 		</div>
     <div class="dc" style=" border: 1px dashed white;">
-		&#160;
+		<span>&#160;</span>
 		</div>
 	<div class="dc" style=" border: 1px dashed white;">
-		in the Amount of:
+		<span>in the Amount of:</span>
 		</div>
-	<div class="dc" style="margin-bottom:50px; border: 1px dashed white;">
-		To apply to the following:
+	<div class="dc" style="margin-bottom:0px; border: 1px dashed white;">
+		<span>To apply to the following:</span>
 		</div>
 	</div>
 
@@ -124,7 +124,7 @@
 		<t t-foreach="o.partner_id" t-as="val">
                 <span>
                     <span t-esc="val.street"/>
-                    <span t-esc="val.state_id.name"/>
+                    <span t-esc="val.city"/>
                     <span t-esc="val.country_id.name"/>
                 </span>
 				</t>
