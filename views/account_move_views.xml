@@ -16,7 +16,7 @@
 
 <!--                    <button name="get_journal_payable" type="object" string="Get Journal Payable"/>-->
 <!--                    print_for_credit_note_voucher-->
-                    <button name="remove_comma" type="object" string="Button"/>
+<!--                    <button name="remove_comma" type="object" string="Button"/>-->
                 </xpath>
                 <xpath expr="//group[@id='header_right_group']" position="after">
                     <group>

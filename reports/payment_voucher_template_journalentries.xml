@@ -56,12 +56,12 @@
                             <td class="td-first"/>
                             <td class="td-first"/>
                             <td class="td-first">
-                                <div t-foreach="o.invoice_ids" t-as="val">
+                                <div t-foreach="o.line_ids" t-as="val">
                                     <h6 style="font-size: 12px;" t-esc="val.name"/>
                                 </div>
                             </td>
                             <td class="td-first">
-                                <div t-foreach="o.invoice_ids" t-as="val">
+                                <div t-foreach="o.line_ids" t-as="val">
                                     <h6 style="font-size: 12px;" t-esc="val.ref"/>
                                 </div>
                             </td>
