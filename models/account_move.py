@@ -71,12 +71,15 @@ class account_move(models.Model):
     fetch_recheck_compute = fields.Float(compute='recheck_calculate')
     fetch_recheck_data = fields.Float()
 
-    # deduct_value_var = fields.Float(compute='calculation_of_deduct_value')
-    # amm_usd_var = fields.Float(compute='calculation_of_amm_usd_proc_fee')
     amm_usd_val = fields.Float()
 
-
-
+    @api.depends('getting_total_of_debit_credit_val')
+    def recheck_calculate(self):
+        self.fetch_recheck_compute = 0
+        fetch_and_recalculate_minus = self.getting_total_of_debit_credit_val * 0.05
+        fetch_and_recalculate_total_retotal = self.getting_total_of_debit_credit_val - fetch_and_recalculate_minus
+        print(fetch_and_recalculate_total_retotal, '<=== Recalc')
+        self.fetch_recheck_data = fetch_and_recalculate_total_retotal
     @api.depends('line_ids')
     def getting_total_of_debit_credit(self):
         self.getting_total_of_debit_credit_var = 0
@@ -646,12 +649,6 @@ class account_move(models.Model):
                     print(test_str.title())
                     self.word_move = test_str.title()
 
-    @api.depends('getting_total_of_debit_credit_val')
-    def recheck_calculate(self):
-        self.fetch_recheck_compute = 0
-        fetch_and_recalculate_minus = self.getting_total_of_debit_credit_val * 0.05
-        fetch_and_recalculate_total_retotal = self.getting_total_of_debit_credit_val - fetch_and_recalculate_minus
-        self.fetch_recheck_data = fetch_and_recalculate_total_retotal
 
 
 class account_move_line(models.Model):

@@ -16,7 +16,7 @@
 
 <!--                    <button name="get_journal_payable" type="object" string="Get Journal Payable"/>-->
 <!--                    print_for_credit_note_voucher-->
-<!--                    <button name="remove_comma" type="object" string="Button"/>-->
+<!--                    <button name="recheck_calculate" type="object" string="Button"/>-->
                 </xpath>
                 <xpath expr="//group[@id='header_right_group']" position="after">
                     <group>
@@ -30,6 +30,7 @@
                             <field name="computing_forex_and_amm" invisible="1"/>
                             <field name="computing_forex_and_amm_v2" invisible="1"/>
                             <field name="getting_total_of_debit_credit_var" invisible="1"/>
+                            <field name="fetch_recheck_compute" invisible="1"/>
 <!--                            <field name="amm_usd_var" invisible="1"/>-->
 <!--                            <field name="deduct_value_var" invisible="1"/>-->
                         </group>
