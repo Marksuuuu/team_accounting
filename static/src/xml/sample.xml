@@ -111,7 +111,7 @@
                        </tr>
                    </thead>
                    <tbody>
-                       <t t-foreach="report_lines" t-as="data">
+                       <t t-foreach="report_lines_data" t-as="data">
                            <tr>
                                <td style="border: 0px solid black;">
                                    <t t-esc="data['id']"/>

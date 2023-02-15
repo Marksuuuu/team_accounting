@@ -206,7 +206,7 @@
                 <div style="margin-left:260px; margin-top:50px;">
                     <h6>
                         <span>AMOUNT PHP : </span>
-                             <span t-esc="o.forex_and_amm_val" t-options='{"widget": "float", "precision": 2}' />
+                             <span t-esc="o.fetch_recheck_data" t-options='{"widget": "float", "precision": 2}' />
                     </h6>
                      <h6>
                         <span>FOREX RATE : </span>

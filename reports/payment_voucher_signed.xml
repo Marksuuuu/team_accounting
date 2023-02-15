@@ -20,7 +20,7 @@
                         height: 170px;
                     }
                     .td-second{
-                        height: 150px;
+                        height: 130px;
                     }
                     .td-third{
                         height: 150px;
@@ -256,7 +256,7 @@
                         </tr>
                          <tr>
                             <td class="td-fourth" colspan="8">
-                                <div style="text-align:left;" t-foreach="o.invoice_ids.invoice_partner_bank_id" t-as="val">
+                                <div style="text-align:left;" t-foreach="o.journal_id" t-as="val">
                                     <span style="text-align:left;" t-esc="val.name"/>
                                 </div>
                             </td>

@@ -49,10 +49,7 @@ odoo.define('client_act.sale_cust', function (require) {
        },
        show_drop_down: function(){
             console.log('testttt');
-            self.load_data_new_query();
-       },
-       load_data_new_query: function () {
-           var self = this;
+            var self = this;
                    var self = this;
                    self._rpc({
                        model: 'account.custom',
@@ -61,9 +58,12 @@ odoo.define('client_act.sale_cust', function (require) {
                    }).then(function(datas) {
                    console.log("dataaaaaa", datas)
                        self.$('.table_view_new').html(QWeb.render('SaleTableNew', {
-                                  report_lines : datas,
+                                  report_lines_data : datas,
                        }));
                    });
+       },
+       load_data_new_query: function () {
+
            },
 
        start: function() {
