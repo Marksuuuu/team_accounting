@@ -68,10 +68,10 @@
                             <td class="td-first"/>
                             <td class="td-first">
                                 <t t-if="o.remove_monetary">
-                                        <span t-esc="o.remove_monetary"/>
+                                        <span t-esc="o.remove_monetary" t-options='{"widget": "float", "precision": 2}'/>
                                 </t>
                                 <t t-elif="o.remove_monetary">
-                                        <span t-esc="o.remove_monetary"/>
+                                        <span t-esc="o.remove_monetary" t-options='{"widget": "float", "precision": 2}'/>
                                 </t>
                                 <t t-else="not o.remove_monetary">
                                       <span>&#160;</span>
@@ -87,10 +87,10 @@
                             <td colspan="4" style="text-align: right;">TOTAL: </td>
                             <td colspan="4">
                                  <t t-if="o.remove_monetary">
-                                    <span t-esc="o.remove_monetary"/>
+                                    <span t-esc="o.remove_monetary" t-options='{"widget": "float", "precision": 2}'/>
                                 </t>
                                 <t t-elif="o.remove_monetary">
-                                    <span t-esc="o.remove_monetary"/>
+                                    <span t-esc="o.remove_monetary" t-options='{"widget": "float", "precision": 2}'/>
                                 </t>
                                 <t t-else="not o.remove_monetary">
                                     <span>&#160;</span>
