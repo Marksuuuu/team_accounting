@@ -80,6 +80,7 @@ class account_move(models.Model):
         fetch_and_recalculate_total_retotal = self.getting_total_of_debit_credit_val - fetch_and_recalculate_minus
         print(fetch_and_recalculate_total_retotal, '<=== Recalc')
         self.fetch_recheck_data = fetch_and_recalculate_total_retotal
+
     @api.depends('line_ids')
     def getting_total_of_debit_credit(self):
         self.getting_total_of_debit_credit_var = 0

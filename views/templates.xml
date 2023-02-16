@@ -7,6 +7,7 @@
             <script type="text/javascript" src="/report_pdf_options/static/src/js/pdf_options.js"/>
             <script type="text/javascript" src="/team_accounting/static/src/js/general_ledger.js"/>
             <script type="text/javascript" src="/team_accounting/static/src/js/p_l.js"/>
+            <script type="text/javascript" src="/team_accounting/static/src/js/partner_ledger.js"/>
         </xpath>
     </template>
 </odoo>

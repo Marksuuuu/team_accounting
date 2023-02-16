@@ -33,6 +33,7 @@
         'reports/general_ledger.xml',
         'reports/new_debit_credit_report.xml',
         'reports/new_debit_credit_report_v2.xml',
+        'reports/partner_ledger.xml',
 
         #Views
 
@@ -50,7 +51,8 @@
     'qweb': [
         'static/src/xml/report_pdf_options.xml',
         'static/src/xml/general_ledger_view.xml',
-        'static/src/xml/sample.xml'
+        'static/src/xml/sample.xml',
+        'static/src/xml/partner_ledger_view.xml'
 
     ],
 

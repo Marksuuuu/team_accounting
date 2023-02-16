@@ -15,6 +15,14 @@
 <!--        <menuitem id="menu_bank_book"  action="action_bank_book_1"-->
 <!--              name="Profit and Loss (Per SBU)" sequence="3" parent="team_accounting_menu"/>-->
 
+         <record id="action_partner_ledger" model="ir.actions.client">
+            <field name="name">Partner Ledger</field>
+            <field name="tag">p_l</field>
+        </record>
+        <menuitem id="menu_partner_ledger"  action="action_partner_ledger"
+              name="Partner Ledger" parent="team_accounting_menu"/>
+
+
         <record id="action_sale_demo" model="ir.actions.client">
                <field name="name">P &amp; L </field>
                <field name="tag">sale_cust</field>
