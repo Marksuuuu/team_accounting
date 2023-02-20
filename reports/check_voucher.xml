@@ -9,6 +9,7 @@
                     tr,th,td,table{
                         border:solid white 1px;
                         text-align: center;
+                        font-family: Verdana,Geneva,sans-serif;
                     }
                     .add_height{
                         height: 230px;
@@ -164,7 +165,7 @@
                     <td class="add_height4" colspan="2"/>
                 </tr>
                 <tr>
-                    <td colspan="10" ><span style="float:right; margin-right:140px;">&#160;</span></td>
+                    <td colspan="10" style="height:170px;"><span style="float:right; margin-right:140px;">&#160;</span></td>
                 </tr>
                 <tr>
                     <td colspan="2"/>
