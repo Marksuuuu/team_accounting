@@ -57,12 +57,12 @@
                             <td class="td-first"/>
                             <td class="td-first">
                                 <div t-foreach="o.line_ids" t-as="val">
-                                    <h6 style="font-size: 12px;" t-esc="val.name"/>
+<!--                                    <h6 style="font-size: 12px;" t-esc="val.name"/>-->
                                 </div>
                             </td>
                             <td class="td-first">
                                 <div t-foreach="o.line_ids" t-as="val">
-                                    <h6 style="font-size: 12px;" t-esc="val.ref"/>
+<!--                                    <h6 style="font-size: 12px;" t-esc="val.ref"/>-->
                                 </div>
                             </td>
                             <td class="td-first"/>
@@ -151,9 +151,9 @@
                         <tr>
                             <td class="td-fourth" colspan="3">PARTICULARS</td>
                             <td class="td-fourth" colspan="5">
-                                <t t-foreach="o.line_ids" t-as="val">
-                                    <h6 style="font-size: 12px;" t-esc="val.name"/>
-                                </t>
+<!--                                <t t-foreach="o.name" t-as="val">-->
+                                    <h6 style="font-size: 12px;" t-esc="o.name"/>
+<!--                                </t>-->
                             </td>
                             <td class="td-fourth" colspan="3"/>
                         </tr>

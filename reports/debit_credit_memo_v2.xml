@@ -84,19 +84,19 @@
                 }
 	</style>
                 </xpath>
-<div class="container">
-	<img style="margin-left:430px; height:150; width: 415px;" src="/team_accounting/static/src/img/no_bg.png"/>
-</div>
-<div class="container" style="margin-bottom:50px;">
-    <h4 style="margin-left:510px;">DEBIT / CREDIT MEMO</h4>
-</div>
-<div class="container">
-	<div style="display: block;">
-		<div class="dc" style=" border: 1px dashed white;">
-			<span>Customer Code:</span>
-<!--                <span t-foreach="o.line_ids.partner_id" t-as="val">-->
-<!--                    <span t-esc="val.name"/>-->
-<!--                </span>-->
+    <div class="container">
+        <img style="margin-left:430px; height:150; width: 415px;" src="/team_accounting/static/src/img/no_bg.png"/>
+    </div>
+    <div class="container" style="margin-bottom:50px;">
+        <h4 style="margin-left:510px;">DEBIT / CREDIT MEMO</h4>
+    </div>
+    <div class="container">
+        <div style="display: block;">
+            <div class="dc" style=" border: 1px dashed white;">
+                <span>Customer Code:</span>
+    <!--                <span t-foreach="o.line_ids.partner_id" t-as="val">-->
+    <!--                    <span t-esc="val.name"/>-->
+    <!--                </span>-->
 		</div>
 	<div class="dc" style=" border: 1px dashed white;">
 		<span>For:</span>

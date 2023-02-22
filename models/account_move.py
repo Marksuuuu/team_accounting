@@ -51,7 +51,7 @@ class account_move(models.Model):
     saving_forex_php_value = fields.Float()
 
     # adding_usd_with_percent_here = fields.Float(compute='adding_usd_with_percent')
-    adding_usd_with_percent_value = fields.Float()
+    adding_usd_with_percent_value = fields.Monetary()
 
     computing_forex_and_amm = fields.Float(compute='computing_forex_and_amm_var')
     forex_and_amm_val = fields.Float()
@@ -73,6 +73,14 @@ class account_move(models.Model):
 
     amm_usd_val = fields.Float()
 
+    @api.depends('')
+    def re_check_recalc_debit_credit(self):
+        start = datetime.datetime.strptime("21-06-2014", "%d-%m-%Y")
+        end = datetime.datetime.strptime("07-07-2014", "%d-%m-%Y")
+        date_generated = [start + datetime.timedelta(days=x) for x in range(0, (end - start).days)]
+
+        for date in date_generated:
+            print(date.strftime("%d-%m-%Y"))
     @api.depends('getting_total_of_debit_credit_val')
     def recheck_calculate(self):
         self.fetch_recheck_compute = 0
@@ -610,7 +618,8 @@ class account_move(models.Model):
             else:
                 print('Sample')
                 cents_int = cents
-                only_two_start_num = int(str(cents_int)[:2])
+                # only_two_start_num = int(str(cents_int)[:2])
+                only_two_start_num = cents_int
                 print(only_two_start_num, '<-- for Testing')
                 cent_int = list(map(int, str(only_two_start_num)))
                 print(cent_int, '<-- get size')
@@ -618,7 +627,8 @@ class account_move(models.Model):
                 print(type(counting_cents_stored), '<-- count length')
                 if counting_cents_stored == 1:
                     print(counting_cents_stored)
-                    only_two_start_num = int(str(cents)[:2])
+                    # only_two_start_num = int(str(cents)[:2])
+                    only_two_start_num = cents_int
                     print(only_two_start_num, '<---- test print hhere')
                     cent_fraction = "{}0/100".format(only_two_start_num)
                     word = "{} & {} Only".format(dollar_words, cent_fraction)
@@ -634,7 +644,8 @@ class account_move(models.Model):
                     self.word_move = test_str.title()
                 else:
                     print(counting_cents_stored)
-                    only_two_start_num = int(str(cents)[:2])
+                    # only_two_start_num = int(str(cents)[:2])
+                    only_two_start_num = cents_int
                     print(only_two_start_num, '<---- test print double')
                     # only_two_start_num = int(str(cents)[:2])
                     cent_fraction = "{}/100".format(only_two_start_num)

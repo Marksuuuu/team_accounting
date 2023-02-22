@@ -257,7 +257,7 @@
                          <tr>
                             <td class="td-fourth" colspan="8">
                                 <div style="text-align:left;" t-foreach="o.journal_id" t-as="val">
-                                    <span style="text-align:left;" t-esc="val.name"/>
+                                    <span><span style="text-align:left;" t-esc="val.name"/><span style="text-align:left;" t-esc="val.bank_acc_number"/></span>
                                 </div>
                             </td>
                             <td class="td-fourth" colspan="3"/>
