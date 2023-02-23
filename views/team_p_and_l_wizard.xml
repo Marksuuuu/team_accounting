@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="team_pandl_form_view" model="ir.ui.view">
+            <field name="name">team_pandl_form</field>
+            <field name="model">team.pandl</field>
+            <field name="arch" type="xml">
+                <form string="Tree">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="profit_and_loss_date_start" widget="daterange" options="{'related_start_date': 'profit_and_loss_date_end'}"/>
+                            </group>
+                            <group>
+                                <field name="profit_and_loss_date_end" widget="daterange" options="{'related_end_date': 'profit_and_loss_date_end'}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <notebook>
+                                <page string="Profit and Loss">
+                                    <field name="connection">
+                                        <tree>
+                                            <field name="analytic_acc"/>
+                                            <field name="debit"/>
+                                            <field name="credit"/>
+                                            <field name="balance"/>
+                                        </tree>
+                                        <form>
+                                            <group>
+                                                <field name="analytic_acc"/>
+                                                <field name="debit"/>
+                                                <field name="credit"/>
+                                                <field name="balance"/>
+                                            </group>
+                                        </form>
+                                    </field>
+                                </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="team_pandl_tree_view" model="ir.ui.view">
+            <field name="name">team_pandl_tree</field>
+            <field name="model">team.pandl</field>
+            <field name="arch" type="xml">
+                <tree string="Tree">
+                    <field name="profit_and_loss_date_start"/>
+                    <field name="profit_and_loss_date_end"/>
+                </tree>
+            </field>
+        </record>
+
+
+
+        <!-- This Menu Item Must have a parent -->
+
+    </data>
+</odoo>

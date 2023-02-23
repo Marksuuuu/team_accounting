@@ -9,8 +9,8 @@
                     tr,th,td,table{
                         border:solid white 1px;
                         text-align: center;
-                        font-family: Verdana,Geneva,sans-serif;
-                        font-weight:bold;
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-weight:normal;
                         font-size:14px;
                     }
                     .add_height{
@@ -18,11 +18,11 @@
 
                     }
                     .add_height2{
-                        height: 350px;
+                        height: 200px;
 
                     }
                     .add_height3{
-                        height: 130px;
+                        height: 250px;
                     }
                     .add_height4{
                         height: 80px;
@@ -40,13 +40,14 @@
                         align-items:center;
                     }
                     h6{
-                        font-weight:bold;
+                        font-weight:normal;
                     }
 	                </style>
                 </xpath>
                  <div class="logo">
-                    <img src="/team_accounting/static/src/img/logo1.png"/>
-                    <span style="font-style:italic; font-weight:bold;">&#160;Team Pacific Corporation</span>
+<!--                    <img src="/team_accounting/static/src/img/logo1.png"/>-->
+<!--                    <span style="font-style:italic; font-weight:bold;">&#160;Team Pacific Corporation</span>-->
+                     &#160;
                 </div>
                 	<table>
                 <tr>
@@ -130,7 +131,7 @@
                 <tr>
                     <td class="add_height2" colspan="2">&#160;</td>
                     <td class="add_height2" colspan="1">&#160;</td>
-                    <td colspan="4" rowspan="1">
+                    <td colspan="4" rowspan="1" style="text-align:left;">
                         <t t-foreach="o.move_line_ids.account_id" t-as="val">
                             <h6 t-esc="val.name"/>
                         </t>
@@ -157,9 +158,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="add_height3" colspan="10">
-                        <t t-foreach="o.invoice_ids.invoice_line_ids" t-as="val">
-                            <span t-esc="val.name"/><br/>
+                    <td class="add_height3" colspan="10" style="vertical-align:top;">
+                        <t t-foreach="o.invoice_ids.invoice_line_ids" t-as="val" style="vertical-align:top;">
+                            <span style="margin-left:50px;" t-esc="val.name"/><br/>
                         </t>
                     </td>
                 </tr>
@@ -175,33 +176,35 @@
                 <tr>
                     <td colspan="2"/>
                     <td colspan="2"/>
-                    <td colspan="4"/>
-                    <td colspan="2" style="text-align: left; vertical-align:top;"><span style="letter-spacing: 6px;">
+                    <td colspan="3"/>
+                    <td colspan="3" style="vertical-align:top;"><span style="letter-spacing: 6px;">
                         <t t-if="o.payment_date">
-                            <span style="letter-spacing: 6px; text-transform: uppercase;" t-esc="o.payment_date.strftime('%m&#160;&#160;%d&#160;&#160;%Y')"/>
+                            <span style="letter-spacing: 6px; text-transform: uppercase;" t-esc="o.payment_date.strftime('%m&#160;&#160;&#160;&#160;&#160;%d&#160;&#160;&#160;%Y')"/>
                         </t>
                     </span></td>
                 </tr>
                 <tr>
                     <td>&#160;</td>
-                    <td colspan="6" style="height:40px; vertical-align:bottom;"><span>
+                    <td colspan="6" style="height:60px; vertical-align:top; font-size: 14px;"><span>
                         <t t-if="o.partner_id">
                             <span t-field="o.partner_id.name"/>
                         </t>
                     </span></td>
-                    <td colspan="3" style="height:40px; vertical-align:bottom;"><span>
-                        <t t-if="o.to_php">
-                            <span t-esc="o.to_php" t-options='{"widget": "float", "precision": 2}'/>
+                    <td colspan="3" style="height:40px; vertical-align:center;"><span>
+                        <t t-if="o.to_php" style="margin-top:7px;">
+                            <span  t-esc="o.to_php" t-options='{"widget": "float", "precision": 2}'/>
                         </t>
                     </span></td>
                 </tr>
                 <tr>
                     <td style="height:40px;">&#160;</td>
-                    <td colspan="9" style="text-align: left; height:40px; vertical-align: bottom;"><span>
-                        <t t-if="o.word_move">
-                           <span style="letter-spacing: 2px; text-transform: uppercase; vertical-align: bottom;" t-field="o.word_move"/>
-                        </t>
-                    </span></td>
+                    <td colspan="9" style="text-align: left; height:60px; vertical-align: top; font-size: 14px;">
+                        <span>
+                            <t t-if="o.word_move">
+                               <span style="letter-spacing: 2px; text-transform: uppercase; vertical-align: top;" t-field="o.word_move"/>
+                            </t>
+                        </span>
+                    </td>
                 </tr>
             </table>
              </t>

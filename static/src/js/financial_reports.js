@@ -1,4 +1,4 @@
-odoo.define('dynamic_accounts_report.financial_reports', function (require) {
+odoo.define('team_accounting.financial_reports', function (require) {
     'use strict';
     var AbstractAction = require('web.AbstractAction');
     var core = require('web.core');

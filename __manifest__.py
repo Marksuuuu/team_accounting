@@ -44,7 +44,11 @@
         'views/templates.xml',
         'views/ir_actions_report.xml',
         'views/team_accounting_menu.xml',
-        'views/analytic_account_view.xml'
+        'views/analytic_account_view.xml',
+
+        #Wizard
+
+        'views/team_p_and_l_wizard.xml',
     ],
     'installable': True,
     'application': True,

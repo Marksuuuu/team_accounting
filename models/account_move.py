@@ -1,14 +1,16 @@
 import math
 import re
 from re import match
-from datetime import datetime, timedelta
+from datetime import datetime
+from datetime import timedelta
 from num2words import num2words
 from odoo import models, fields, api, _
 from datetime import date
 from dateutil.relativedelta import relativedelta
 from odoo.exceptions import UserError, ValidationError
 from collections import defaultdict
-from odoo.tools import datetime
+# from odoo.tools import datetime
+# import pandas as pd
 
 
 class account_move(models.Model):
@@ -73,14 +75,10 @@ class account_move(models.Model):
 
     amm_usd_val = fields.Float()
 
-    @api.depends('')
-    def re_check_recalc_debit_credit(self):
-        start = datetime.datetime.strptime("21-06-2014", "%d-%m-%Y")
-        end = datetime.datetime.strptime("07-07-2014", "%d-%m-%Y")
-        date_generated = [start + datetime.timedelta(days=x) for x in range(0, (end - start).days)]
+    #
+    # @api.depends('invoice_date')
+    # def re_check_recalc_debit_credit(self):
 
-        for date in date_generated:
-            print(date.strftime("%d-%m-%Y"))
     @api.depends('getting_total_of_debit_credit_val')
     def recheck_calculate(self):
         self.fetch_recheck_compute = 0
@@ -303,6 +301,25 @@ class account_move(models.Model):
                 for rec in number:
                     save_record = int(rec)
                 print(save_record)
+
+                list_date = ['2023-02-01', '2023-02-02', '2023-02-03', '2023-02-04', '2023-02-05', '2023-02-06',
+                             '2023-02-07']
+                date_fetch = 0
+                #This is for fixing the bug problem that can two time recalculate Please Comment this code if fixed the problem##
+                for rec in self:
+                    date_fetch = str(rec.invoice_date)
+
+                if date_fetch in list_date:
+                    print('Test')
+
+
+                else:
+                    print('Error')
+
+                #End
+
+
+
 
                 for rec in self.line_ids:
                     get_debit = rec.debit

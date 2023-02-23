@@ -122,7 +122,7 @@
                                   <h6 style="font-size: 12px; text-align:right;" t-esc="val.account_id.code"/>
                                 </t>
                             </td>
-                            <td class="td-third" colspan="6">
+                            <td class="td-third" colspan="6" style="text-align:left;">
                                 <t t-foreach="o.line_ids" t-as="val">
                                   <h6 style="font-size: 12px;" t-esc="val.account_id.name"/>
                                 </t>

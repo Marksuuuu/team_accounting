@@ -115,8 +115,8 @@
                         <tr>
                             <td class="td-third" colspan="2">&#160;</td>
                             <td class="td-third" colspan="2">&#160;</td>
-                            <td class="td-third" colspan="5" style="font-size: 11px;">
-                                <t t-foreach="o.move_line_ids" t-as="val">
+                            <td class="td-third" colspan="5" style="font-size: 11px; text-align:left;">
+                                <t t-foreach="o.move_line_ids" t-as="val" style="text-align:left;">
                                   <h6 style="font-size: 12px;" t-esc="val.account_id.name"/>
                                 </t>
                             </td>

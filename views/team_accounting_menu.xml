@@ -8,28 +8,64 @@
         <!-- This Menu Item Must have a parent -->
         <menuitem id="team_accounting_menu" name="P &amp; L per analytic account" parent="account.menu_finance_entries_accounting_miscellaneous" sequence=""/>
 
-        <record id="action_bank_book_1" model="ir.actions.client">
-                    <field name="name">P &amp; L</field>
-                    <field name="tag">g_l</field>
-        </record>
+<!--        <record id="action_bank_book_1" model="ir.actions.client">-->
+<!--                    <field name="name">P &amp; L</field>-->
+<!--                    <field name="tag">g_l</field>-->
+<!--        </record>-->
 <!--        <menuitem id="menu_bank_book"  action="action_bank_book_1"-->
 <!--              name="Profit and Loss (Per SBU)" sequence="3" parent="team_accounting_menu"/>-->
 
-         <record id="action_partner_ledger" model="ir.actions.client">
-            <field name="name">Partner Ledger</field>
-            <field name="tag">p_l</field>
-        </record>
-        <menuitem id="menu_partner_ledger"  action="action_partner_ledger"
-              name="Partner Ledger" parent="team_accounting_menu"/>
+<!--         <record id="action_partner_ledger" model="ir.actions.client">-->
+<!--            <field name="name">Partner Ledger</field>-->
+<!--            <field name="tag">p_l</field>-->
+<!--        </record>-->
+
+<!--        <record id="action_dynamic_profit_and_loss_test" model="ir.actions.client">-->
+<!--            <field name="name">Profit and Loss</field>-->
+<!--            <field name="tag">dfr_n</field>-->
+<!--        </record>-->
+
+<!--        <menuitem id="menu_profit_and_loss_report" action="action_dynamic_profit_and_loss_test"-->
+<!--                name="Profit and Loss" sequence="0" parent="team_accounting_menu"/>-->
 
 
-        <record id="action_sale_demo" model="ir.actions.client">
-               <field name="name">P &amp; L </field>
-               <field name="tag">sale_cust</field>
-               <field name="target">new</field>
-        </record>
-           <menuitem id="menu_testing"  action="action_sale_demo"
-             name="P and L" parent="team_accounting_menu"/>
+<!--        <menuitem id="menu_partner_ledger"  action="action_partner_ledger"-->
+<!--              name="Partner Ledger" parent="team_accounting_menu"/>-->
+
+
+<!--        <record id="action_sale_demo" model="ir.actions.client">-->
+<!--               <field name="name">P &amp; L </field>-->
+<!--               <field name="tag">sale_cust</field>-->
+<!--               <field name="target">new</field>-->
+<!--        </record>-->
+<!--           <menuitem id="menu_testing"  action="action_sale_demo"-->
+<!--             name="P and L" parent="team_accounting_menu"/>-->
+<!--        -->
+
+
+
+
+
+
+         <record id="team_pandl_act_window" model="ir.actions.act_window">
+            <field name="name">Profit and Loss</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">team.pandl</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+         </record>
+
+        <menuitem id="menu_finance_legal_statement_team"
+                  name="Team Pacific Accounting Report"
+                  sequence="10"
+                  parent="account.menu_finance_reports"/>
+        <menuitem id="team_acct_rep" name="Team Accounting Report"  parent="account.menu_finance_reports" sequence=""/>
+            <menuitem name="Profit and Loss" id="team_pandl_report" parent="menu_finance_legal_statement_team" action="team_pandl_act_window" sequence="1"/>
+
 
 
     </data>
