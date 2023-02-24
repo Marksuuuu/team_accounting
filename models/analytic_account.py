@@ -6,11 +6,11 @@ class AnalyticAccount(models.Model):
     _description = 'Team Accounting Account Analytic Account'
 
     compute_here = fields.Float(compute='fetch_data_from_function')
-    ann_account_debit = fields.Monetary()
-    ann_account_credit = fields.Monetary()
-    ann_account_balance = fields.Monetary()
+    ann_account_debit = fields.Float()
+    ann_account_credit = fields.Float()
+    ann_account_balance = fields.Float()
 
-    """Getting Balance, Credit, Debit here because the main function for credit debit balance is in compute only and no stored """
+    """Getting Balance, Credit, Debit here because the main function for credit debit balance is in compute only and not stored """
     def fetch_data_from_function(self):
         self.compute_here = 0
         fetch_debit = 0

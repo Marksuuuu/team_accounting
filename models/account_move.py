@@ -306,15 +306,15 @@ class account_move(models.Model):
                              '2023-02-07']
                 date_fetch = 0
                 #This is for fixing the bug problem that can two time recalculate Please Comment this code if fixed the problem##
-                for rec in self:
-                    date_fetch = str(rec.invoice_date)
-
-                if date_fetch in list_date:
-                    print('Test')
-
-
-                else:
-                    print('Error')
+                # for rec in self:
+                #     date_fetch = str(rec.invoice_date)
+                #
+                # if date_fetch in list_date:
+                #     print('Test')
+                #
+                #
+                # else:
+                #     print('Error')
 
                 #End
 

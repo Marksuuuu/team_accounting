@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!-- This Menu Item must have a parent and an action -->
-<!--        <menuitem id="team_account_move_line_menu" name="P &amp; L per analytic account" parent="account.menu_finance_entries_accounting_miscellaneous" action="team_accounting.account_move_line_id_action" sequence="0"/>-->
-
-        <!-- This Menu Item Must have a parent -->
-        <!-- This Menu Item Must have a parent -->
         <menuitem id="team_accounting_menu" name="P &amp; L per analytic account" parent="account.menu_finance_entries_accounting_miscellaneous" sequence=""/>
 
 <!--        <record id="action_bank_book_1" model="ir.actions.client">-->
@@ -43,21 +38,29 @@
 <!--        -->
 
 
-
-
-
-
-         <record id="team_pandl_act_window" model="ir.actions.act_window">
+        <record id="team_pandl_act_window" model="ir.actions.act_window">
             <field name="name">Profit and Loss</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">team.pandl</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
-                    There is no examples click here to add new ModelTitle.
+                There is no examples click here to add new ModelTitle.
                 </p>
             </field>
-         </record>
+        </record>
+
+        <record id="team_pandl_line_act_window" model="ir.actions.act_window">
+            <field name="name">Profit and Loss</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">team.pandl.line</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+        </record>
 
         <menuitem id="menu_finance_legal_statement_team"
                   name="Team Pacific Accounting Report"
@@ -65,8 +68,6 @@
                   parent="account.menu_finance_reports"/>
         <menuitem id="team_acct_rep" name="Team Accounting Report"  parent="account.menu_finance_reports" sequence=""/>
             <menuitem name="Profit and Loss" id="team_pandl_report" parent="menu_finance_legal_statement_team" action="team_pandl_act_window" sequence="1"/>
-
-
 
     </data>
 </odoo>
