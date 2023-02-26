@@ -8,5 +8,4 @@ from . import payable_voucher_xlsx
 from . import voucher_report_xlsx
 from . import debit_credit_memo_xlsx
 from . import sample
-from . import analytic_account
 
